@@ -1,4 +1,4 @@
-var chart = d3.timeline();
+var chart = d3.timeline().stack();
 
 var data = [
 	{label: "Life events", times: [
@@ -13,4 +13,4 @@ var data = [
 ]
 
 var svg = d3.select("#timeline").append("svg").attr("width", 500)
-  .datum(data).stack().call(chart);
+  .datum(data).call(chart);
