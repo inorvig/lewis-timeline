@@ -7,30 +7,31 @@
 	<script src="https://rawgit.com/jiahuang/d3-timeline/master/src/d3-timeline.js"></script>
 	<script src="timeline.js"></script>
 	<script>
-    window.onload = function() {
-      var testData = [
-        {times: [{"starting_time": 1355752800000, "ending_time": 1355759900000}, {"starting_time": 1355767900000, "ending_time": 1355774400000}]},
-        {times: [{"starting_time": 1355759910000, "ending_time": 1355761900000}, ]},
-        {times: [{"starting_time": 1355761910000, "ending_time": 1355763910000}]}
-      ];
+	window.onload = function() {
+		var chart = d3.timeline().stack();
 
-      var width = 500;
-      function timelineRect() {
-        var chart = d3.timeline();
+		var data = [
+		{label: "Life events", times: [
+			{label: "Born", starting_time: -2243358000000, display: "circle"}
+		]}// ,
+	// 	{label: "Novels", times: [
+	//
+	// 	]},
+	// 	{label: "Essays", times: [
+	//
+	// 	]}
+		];
 
-        var svg = d3.select("#timeline1").append("svg").attr("width", width)
-          .datum(testData).call(chart);
-      }
-
-      timelineRect();
-    }
+		var svg = d3.select("#timeline").append("svg").attr("width", 500)
+	  	.datum(data).call(chart);
+	}
 	</script>
 </head>
 
 <body>
 	<div>
 		<h3>The Life and Times of CS Lewis</h3>
-		<div id="timeline1"></div>
+		<div id="timeline"></div>
 	</div>
 	
 </body>
